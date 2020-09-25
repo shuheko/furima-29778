@@ -43,7 +43,7 @@ Things you may want to cover:
 
 - has_many :items
 - has_many :comments
-- has_many :order
+- has_many :orders
 
 
 ## items テーブル
@@ -80,7 +80,7 @@ Things you may want to cover:
 - belongs_to :item
 - belongs_to :user
 
-## address テーブル
+## addresses テーブル
 
 | Column        | Type       | Options                        |
 | -------       | ---------- | -----------                    |
@@ -96,7 +96,7 @@ Things you may want to cover:
 
 - belongs_to :order
 
-## orderテーブル
+## ordersテーブル
 
 | Column  | Type       | Options     |
 | ------- | ---------- | ----------- |
