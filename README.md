@@ -29,6 +29,7 @@ Things you may want to cover:
 
 | Column            | Type    | Options     |
 | --------          | ------  | ----------- |
+| users_id          | string  | null: false |
 | name              | string  | null: false |
 | email             | string  | null: false |
 | password          | string  | null: false |
@@ -36,15 +37,14 @@ Things you may want to cover:
 | family_name       | string  | null: false |
 | first_name_kana   | string  | null: false |
 | family_name_kana  | string  | null: false |
-| birthday_year_id  | integer | null: false |
-| birthday_month_id | integer | null: false |
-| birthday_day_id   | integer | null: false |
+| birthday          | date    | null: false |
+
 
 ### Association
 
 - has_many :items
 - has_many :comments
-- belongs_to :address
+- belongs_to :order
 
 
 ## items テーブル
@@ -58,26 +58,27 @@ Things you may want to cover:
 | shipping_id | integer | null: false |
 | area_id     | integer | null: false |
 | days_id     | integer | null: false |
-| price       | string  | null: false |
+| price       | integer | null: false |
 
 ### Association
 
-- belongs_to :users
+- belongs_to :user
 - has_many :comments
+- belongs_to :order
 
 ## coments テーブル
 
-| Column | Type       | Options                        |
-| ------ | ---------- | -----------                    |
-| text   | string     | null: false                    |
-| items  | string     | null: false, foreign_key: true |
-| users  | string     | null: false, foreign_key: true |
+| Column  | Type       | Options                        |
+| ------  | ---------- | -----------                    |
+| text    | string     | null: false                    |
+| item_id | string     | null: false, foreign_key: true |
+| user_id | string     | null: false, foreign_key: true |
 
 
 ### Association
 
-- belongs_to :items
-- belongs_to :users
+- belongs_to :item
+- belongs_to :user
 
 ## address テーブル
 
@@ -92,14 +93,14 @@ Things you may want to cover:
 
 ### Association
 
-- belongs_to :user
+- belongs_to :order
 
 ## orderテーブル
 
 | Column  | Type       | Options     |
 | ------- | ---------- | ----------- |
-| users   | string     | null: false |
-| items   | string     | null: false |
+| users   | string     | null: false, foreign_key: true |
+| items   | string     | null: false, foreign_key: true |
 
 - belongs_to :user
 - belongs_to :item
