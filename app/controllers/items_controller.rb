@@ -7,8 +7,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    # binding.pry
-    @item = Item.create(item_params)
+    @item = Item.new(item_params)
     if @item.save
       redirect_to items_path
     else
@@ -25,4 +24,3 @@ class ItemsController < ApplicationController
 
 
 end
-bundle exec rspec spec/models/item_spec.rb

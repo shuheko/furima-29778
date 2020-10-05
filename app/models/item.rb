@@ -12,11 +12,11 @@ class Item < ApplicationRecord
   with_options presence: true do
     validates :name
     validates :explanation
-    validates :category_id
-    validates :status_id
-    validates :shipping_id
-    validates :area_id
-    validates :days_id
+    validates :category_id,format:{ with: /\A[2-9]|1[0-1]\z/, message: "is invalid"}
+    validates :status_id,format:{ with: /\A[2-7]\z/, message: "is invalid"}
+    validates :shipping_id,format:{ with: /\A[2-3]\z/, message: "is invalid"}
+    validates :area_id,format:{ with: /\A[2-9]|[2-4][0-9]\z/, message: "is invalid"}
+    validates :days_id,format:{ with: /\A[2-4]\z/, message: "is invalid"}
     validates :price, inclusion: { in: 300..9999999}
     validates :image
   end
