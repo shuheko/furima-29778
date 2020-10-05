@@ -14,4 +14,5 @@ class User < ApplicationRecord
     validates :password, format:{ with:/\A[a-z\d]{6,}\z/i, message:"is invalid"}
     validates :birthday
   end
+  has_many :items
 end
