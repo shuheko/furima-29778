@@ -19,11 +19,9 @@ class ItemsController < ApplicationController
   end
 
   def show
-    # @item = Item.find(params[:id])
   end
 
   def destroy
-    # @item = Item.find(params[:id])
       if @item.destroy
         redirect_to items_path
       else
