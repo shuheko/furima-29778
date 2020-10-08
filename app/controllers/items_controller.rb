@@ -19,18 +19,12 @@ class ItemsController < ApplicationController
     end
   end
 
-  def show
-  end
-
   def destroy
       if @item.destroy
         redirect_to items_path
       else
         render :show
       end
-  end
-
-  def edit
   end
 
   def update
