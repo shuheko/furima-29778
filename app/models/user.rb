@@ -11,7 +11,7 @@ class User < ApplicationRecord
     validates :first_name_kana, format:{ with: /\A[ァ-ン]/, message: "is invalid"} 
     validates :family_name_kana, format:{ with: /\A[ァ-ン]/, message: "is invalid"} 
     validates :email, format:{ with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i, message: "is invalid"}
-    validates :password, format:{ with: /\A(?=.*?[a-z\d]){6,}+\z/, message:"is invalid"}
+    validates :password, format:{ with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i, message:"is invalid"}
     validates :birthday
   end
   has_many :items
